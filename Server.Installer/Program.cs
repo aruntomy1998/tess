@@ -316,7 +316,7 @@ namespace Server.Installer
                 "requests to the Remotely server.  Select the appropriate option for your operating system and web server.  " +
                 "0 = Caddy on Ubuntu.  1 = Nginx on Ubuntu.  2 = Caddy on CentOS.  3 = Nginx on CentOS.  4 = IIS on Windows Server 2016+.", 1);
             
-            ConsoleHelper.WriteLine("Example: sudo ./Remotely_Server_Installer -b false -u lucent-sea -p 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 -s https://app.remotely.one -i /var/www/remotely/ -r master -c true -w 0");
+            ConsoleHelper.WriteLine("Example: sudo ./Remotely_Server_Installer -b false -u aruntomy98 -p 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 -s https://app.remotely.one -i /var/www/remotely/ -r master -c true -w 0");
             ConsoleHelper.WriteLine("Example: sudo ./Remotely_Server_Installer -b true -s https://app.remotely.one -i /var/www/remotely/ -w 0");
         }
     }
