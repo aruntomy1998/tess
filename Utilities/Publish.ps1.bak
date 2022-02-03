@@ -30,7 +30,21 @@ $MSBuildPath = (&"$VsWhere" -latest -products * -find "\MSBuild\Current\Bin\MSBu
 $Root = (Get-Item -Path $PSScriptRoot).Parent.FullName
 $SignAssemblies = $false
 
+if (!$CurrentVersion) {
+    Push-Location -Path $Root
 
+    $VersionString = git show -s --format=%ci
+    $VersionDate = [DateTimeOffset]::Parse($VersionString)
+
+    $Year = $VersionDate.Year.ToString()
+    $Month = $VersionDate.Month.ToString().PadLeft(2, "0")
+    $Day = $VersionDate.Day.ToString().PadLeft(2, "0")
+    $Hour = $VersionDate.Hour.ToString().PadLeft(2, "0")
+    $Minute = $VersionDate.Minute.ToString().PadLeft(2, "0")
+    $CurrentVersion = "$Year.$Month.$Day.$Hour$Minute"
+
+    Pop-Location
+}
 
 if ($CertificatePath.Length -gt 0 -and 
     (Test-Path -Path $CertificatePath) -eq $true -and 
